@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <title>Weather</title>
+</head>
+
+<body>
+
+    <div id="container" class="container">
+        <div id="header">
+            <input type="text" name="city" class="city-input" id="city" placeholder="City">
+            <button class="button" onclick="handleSearch()"> search </button>
+            <br>
+            </a>
+        </div>
+        <br>
+        <div class="cities"></div>
+        <br>
+    </div>
+
+    <script id="cities-template" type="text/x-handlebars-template">
+        {{#each cities}}
+      
+            <div class="city">
+                <br>
+                <div class="imageIcon">
+                    {{#if saved}}
+                    
+                      <a ><i class="addRemove">remove</i></a>
+                       {{else}}
+                       <a ><i class="addRemove">add</i></a>
+                        {{/if}}
+                    <div class="name">{{name}}</div>
+                   
+                    <img src="http://openweathermap.org/img/wn/{{conditionPic}}@2x.png" class="weatherIcon">
+                   
+                </div>
+                <div class="infoTemCon">
+                    <div class="temperature">{{temperature}} <span class="iconTem">&#8451;</span></div>
+                    <p class="condition">{{condition}}</p>
+                    <br>
+                </div>
+                <br>
+            </div>
+            <br>
+        {{/each}}
+      
+      </script>
+
+
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="Model.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="Controller.js"></script>
+
+
+</body>
+
+</html>
